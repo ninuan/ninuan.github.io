@@ -22,6 +22,33 @@
       </tags>
   </entry>
   <entry>
+    <title>vpn搭建教程</title>
+    <url>/2023/07/19/VPN%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="VPN搭建教程"><a href="#VPN搭建教程" class="headerlink" title="VPN搭建教程"></a>VPN搭建教程</h1><p>DNS书写：</p>
+<ol>
+<li><p>安装trojan</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装nginx搭建https伪装</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo yum update //更新软件包</span><br><span class="line"></span><br><span class="line">//安装nginx</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">//启动nginx</span><br><span class="line">systemctl enable nginx; systemctl start nginx</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">默认情况下，Nginx 会监听 80 端口，您可以通过在浏览器中输入服务器的 IP 地址或域名来验证 Nginx 是否安装成功。如果您能够看到 Nginx 的欢迎页面，则表示安装成功。如果未能成功启动 Nginx，请检查 Nginx 的配置文件是否正确，并检查是否有其它服务占用了 80 端口。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">// nginx页面地址在/usr/share/nginx/html  修改下面的nginx即可搭建成功界面</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>证书申请</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">//安装certbot</span><br><span class="line">sudo yum install certbot</span><br><span class="line"></span><br><span class="line">// 申请证书</span><br><span class="line">sudo certbot certonly --webroot -w /path/to/your/application/root --domain example.com --email your-email@example.com</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">/path/to/your/application/root 填写自己前端网页地址，例如本实例即为/usr/share/nginx/html</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>4.完善</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//放前端页面</span><br><span class="line">具体位置在nginx.conf里面可以直接找。</span><br><span class="line">//改nginx配置</span><br><span class="line">直接复制nginx.conf替换原来的。</span><br><span class="line">VPS的nginx.conf位置：/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//改trojan配置：</span><br><span class="line">将config.json文件复制替换原来的：</span><br><span class="line">Trojan的config.json位置:/usr/local/etc/trojan/config.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置重启和开机自启动，这个直接问chatgpt</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bbr加速安装</span><br><span class="line">//先安装wget</span><br><span class="line">yum install wget</span><br><span class="line"></span><br><span class="line">//安装bbr</span><br><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自建测速节点，解决V2rayN测速为0的问题</title>
     <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
@@ -142,33 +169,6 @@
 ]]></content>
       <categories>
         <category>工具</category>
-      </categories>
-      <tags>
-        <tag>vpn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vpn搭建教程</title>
-    <url>/2023/07/19/VPN%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="VPN搭建教程"><a href="#VPN搭建教程" class="headerlink" title="VPN搭建教程"></a>VPN搭建教程</h1><p>DNS书写：</p>
-<ol>
-<li><p>安装trojan</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装nginx搭建https伪装</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo yum update //更新软件包</span><br><span class="line"></span><br><span class="line">//安装nginx</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">//启动nginx</span><br><span class="line">systemctl enable nginx; systemctl start nginx</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">默认情况下，Nginx 会监听 80 端口，您可以通过在浏览器中输入服务器的 IP 地址或域名来验证 Nginx 是否安装成功。如果您能够看到 Nginx 的欢迎页面，则表示安装成功。如果未能成功启动 Nginx，请检查 Nginx 的配置文件是否正确，并检查是否有其它服务占用了 80 端口。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">// nginx页面地址在/usr/share/nginx/html  修改下面的nginx即可搭建成功界面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>证书申请</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">//安装certbot</span><br><span class="line">sudo yum install certbot</span><br><span class="line"></span><br><span class="line">// 申请证书</span><br><span class="line">sudo certbot certonly --webroot -w /path/to/your/application/root --domain example.com --email your-email@example.com</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">/path/to/your/application/root 填写自己前端网页地址，例如本实例即为/usr/share/nginx/html</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>4.完善</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//放前端页面</span><br><span class="line">具体位置在nginx.conf里面可以直接找。</span><br><span class="line">//改nginx配置</span><br><span class="line">直接复制nginx.conf替换原来的。</span><br><span class="line">VPS的nginx.conf位置：/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//改trojan配置：</span><br><span class="line">将config.json文件复制替换原来的：</span><br><span class="line">Trojan的config.json位置:/usr/local/etc/trojan/config.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置重启和开机自启动，这个直接问chatgpt</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bbr加速安装</span><br><span class="line">//先安装wget</span><br><span class="line">yum install wget</span><br><span class="line"></span><br><span class="line">//安装bbr</span><br><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
       </categories>
       <tags>
         <tag>vpn</tag>
