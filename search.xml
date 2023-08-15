@@ -71,41 +71,6 @@
       </tags>
   </entry>
   <entry>
-    <title>自建测速节点，解决V2rayN测速为0的问题</title>
-    <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
-<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
-<li>一个域名（需要解析到cloudflare上面）</li>
-<li>科学上网</li>
-</ol>
-<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
-<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
-</li>
-<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
-</li>
-<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
-</li>
-<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
-</li>
-<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cloudflare创建自己的短链生成网站</title>
     <url>/2023/07/20/%E4%BD%BF%E7%94%A8cloudflare%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%AD%E9%93%BE%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
@@ -160,79 +125,38 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机类试题</title>
-    <url>/2023/08/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%A2%98%E7%9B%AE/</url>
-    <content><![CDATA[<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="头指针和头节点的区别？"><a href="#头指针和头节点的区别？" class="headerlink" title="头指针和头节点的区别？"></a>头指针和头节点的区别？</h3><p>以单链表为例，头指针就是指向链表第一个结点的指针，链表的第一个结点的地址可以通过链表的头指针找到，对单链表中任一元素的访问必须首先根据头指针找到第一个结点。</p>
-<p>而头结点是一个附加结点，头结点的data域可以不存储任何信息，也可以存放特殊标志或表长，只要表存在就必须至少有一个头结点。头结点的存在可以优化单链表的增删操作，使得对于空表或者在非空表第一个结点之前插入不用作为特殊情况专门处理，而是使用通用方法。</p>
-<h3 id="有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？"><a href="#有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？" class="headerlink" title="有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？"></a>有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？</h3><p><code>(p-f+n) % n</code></p>
-<h3 id="3-循环队列如何判断是空还是满？"><a href="#3-循环队列如何判断是空还是满？" class="headerlink" title="3. 循环队列如何判断是空还是满？"></a>3. 循环队列如何判断是空还是满？</h3><p>队空：<code>front == rear</code>  队满：<code>front == (rear + 1) % m</code> </p>
-<h3 id="4-哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？"><a href="#4-哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？" class="headerlink" title="4. 哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？"></a>4. 哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？</h3><ol>
-<li><p>概念:哈希表通过哈希函数将键映射到表中一个位置来操作数据,以巧妙地将查找和插入的时间复杂度降低到O(1)</p>
-</li>
-<li><p>构造方法: 直接地址法; 数字分析法; 平方取中法; 随机数法; </p>
-</li>
-<li><p>哈希冲突的解决方法: </p>
-<ol>
-<li><p>开放地址法:线性探测、二次探测、伪随机探测等。</p>
-</li>
-<li><p>再哈希法:用其他哈希函数重新计算。</p>
-</li>
-<li><p>链地址法:将冲突的元素链起来,链接到同一个位置。</p>
-</li>
-<li><p>建立公共溢出区:将冲突元素放在其他位置。</p>
-</li>
+    <title>自建测速节点，解决V2rayN测速为0的问题</title>
+    <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
+<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
+<li>一个域名（需要解析到cloudflare上面）</li>
+<li>科学上网</li>
 </ol>
+<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
+<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
 </li>
-</ol>
-<h3 id="5-判断链表是否有环"><a href="#5-判断链表是否有环" class="headerlink" title="5. 判断链表是否有环?"></a>5. 判断链表是否有环?</h3><p>快慢指针: 从头开始设置两个指针，快指针每次走2步，慢指针每次走1步，如果快指针先碰到尾，则无环，否则两个指针之后一定会重合，则有环。</p>
-<h3 id="6-平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造"><a href="#6-平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造" class="headerlink" title="6. 平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造?"></a>6. 平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造?</h3><ol>
-<li><p>完全二叉树的每一个节点都与高度为k的满二叉树的1-n编号一一对应。</p>
+<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
 </li>
-<li><p>二叉搜索树和二叉排序树是一个东西。</p>
+<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>   二叉排序树每一个节点都是用于排序的关键码，左子树所有节点关键码都小于根节点的关键码，右子树的所有关键码都大于根节点的关键码，其中，左右子树都是二叉树。对一棵二叉排序树进行中序遍历就可以得到关键码从小到大的排列。</p>
-<p>   二叉搜索树的构造方法主要执行插入操作，进行插入之前必须先检查是否该节点的关键码已经在树中存在，也就是要先查找，假如查找成功，不执行任何操作，假如搜索不成功，就在搜索停止的地方添加新元素。</p>
-<ol start="3">
-<li>平衡二叉树是一种二叉搜索树，它的左右子树高度差的绝对值不超过1。构造一棵平衡二叉树仍然是通过插入节点的方式，每插入一个结点，都应该检查平衡因子，并通过旋转操作使之平衡化。</li>
-</ol>
-<h3 id="7-B树是什么-在数据库中有什么应用？（B数和B-树的区别）"><a href="#7-B树是什么-在数据库中有什么应用？（B数和B-树的区别）" class="headerlink" title="7. B树是什么?在数据库中有什么应用？（B数和B+树的区别）?"></a>7. B树是什么?在数据库中有什么应用？（B数和B+树的区别）?</h3><p>B树的一个结点可以装多个值，读取时，是把整个结点读到内存，然后在内存中，对结点的值进行处理，在内存中处理速度肯定比磁盘快。所以只要树的高度低，IO少，就能够提升查询效率，这是B树的好处之一。</p>
-<p>B树的<strong>缺点</strong>是：不利于范围查找(区间查找)，如果要找 0~100的索引值，那么B树需要多次从根结点开始逐个查找。</p>
-<p>B+树和B树最大的不同是：B+树内部有两种结点，一种是索引结点，一种是叶子结点。B+树的索引结点并不会保存记录，只用于索引，<strong>所有的数据都保存在B+树的叶子结点</strong>中。而<strong>B树则是所有结点都会保存数据</strong>。</p>
-<p><strong>B+树的叶子结点都会被连成一条链表</strong>。叶子本身按索引值的大小从小到大进行排序。即这条链表是 从小到大的。因此可以直接通过遍历链表实现范围查找。</p>
-<h3 id="8-红黑树原理是什么？建立过程？"><a href="#8-红黑树原理是什么？建立过程？" class="headerlink" title="8. 红黑树原理是什么？建立过程？"></a>8. 红黑树原理是什么？建立过程？</h3><p>红黑树（Red-Black Tree）是一种自平衡的二叉搜索树，它在插入和删除操作后通过一系列的旋转和颜色调整来保持树的平衡，从而保证了树的高度始终在一个相对较小的范围内，维持了搜索、插入和删除操作的平均时间复杂度为 O(log n)。</p>
-<p>红黑树具有以下特性：</p>
-<ol>
-<li><strong>节点颜色：</strong> 每个节点都被赋予红色或黑色。</li>
-<li><strong>根节点：</strong> 根节点是黑色的。</li>
-<li><strong>叶子节点（空节点）：</strong> 所有叶子节点都是黑色的。</li>
-<li><strong>红色节点的子节点：</strong> 红色节点的子节点必须是黑色的，这确保了没有两个相邻的红色节点。</li>
-<li><strong>从任意节点到其每个叶子的简单路径都包含相同数目的黑色节点：</strong> 这个性质保证了树的平衡性，即从根到叶子的最长路径不会超过最短路径的两倍。</li>
-</ol>
-<p>红黑树的建立过程涉及插入和调整。以下是插入新节点时红黑树的建立过程：</p>
-<ol>
-<li><strong>插入节点：</strong> 将新节点插入到红黑树中，初始状态为红色。</li>
-<li><strong>颜色调整：</strong> 检查插入节点的父节点和叔叔节点的颜色情况，进行以下几种情况的调整：<ul>
-<li>如果父节点是黑色，无需进一步调整，树仍然满足红黑树性质。</li>
-<li>如果父节点是红色，而叔叔节点也是红色，将父节点和叔叔节点变为黑色，将祖父节点变为红色，然后以祖父节点为当前节点进行递归调整，以保持红黑树性质。</li>
-<li>如果父节点是红色，而叔叔节点是黑色或缺失，需要通过旋转来进行调整。</li>
-</ul>
+<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
 </li>
-<li><strong>旋转操作：</strong> 旋转操作包括左旋和右旋，以恢复树的平衡性。旋转可以分为以下四种情况，分别对应着插入节点的父节点和祖父节点的位置关系以及插入节点的方向：<ul>
-<li>左旋转</li>
-<li>右旋转</li>
-<li>左右旋转</li>
-<li>右左旋转</li>
-</ul>
+<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
 </li>
+<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
 </ol>
-<p>通过递归调整和旋转操作，插入新节点后的红黑树会保持平衡性和红黑树性质。</p>
-<h3 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h3>]]></content>
+]]></content>
       <categories>
-        <category>随笔</category>
+        <category>教程</category>
       </categories>
       <tags>
-        <tag>Learn</tag>
+        <tag>cloudflare</tag>
       </tags>
   </entry>
   <entry>
@@ -269,6 +193,85 @@
       </categories>
       <tags>
         <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机类试题</title>
+    <url>/2023/08/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%A2%98%E7%9B%AE/</url>
+    <content><![CDATA[<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="头指针和头节点的区别？"><a href="#头指针和头节点的区别？" class="headerlink" title="头指针和头节点的区别？"></a>头指针和头节点的区别？</h3><p>以单链表为例，头指针就是指向链表第一个结点的指针，链表的第一个结点的地址可以通过链表的头指针找到，对单链表中任一元素的访问必须首先根据头指针找到第一个结点。</p>
+<p>而头结点是一个附加结点，头结点的data域可以不存储任何信息，也可以存放特殊标志或表长，只要表存在就必须至少有一个头结点。头结点的存在可以优化单链表的增删操作，使得对于空表或者在非空表第一个结点之前插入不用作为特殊情况专门处理，而是使用通用方法。</p>
+<h3 id="有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？"><a href="#有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？" class="headerlink" title="有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？"></a>有一个循环队列Q，里面的编号是0到n-1，头尾指针分别是f，p，现在求Q中元素的个数？</h3><p><code>(p-f+n) % n</code></p>
+<h3 id="循环队列如何判断是空还是满？"><a href="#循环队列如何判断是空还是满？" class="headerlink" title="循环队列如何判断是空还是满？"></a>循环队列如何判断是空还是满？</h3><p>队空：<code>front == rear</code>  队满：<code>front == (rear + 1) % m</code> </p>
+<h3 id="哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？"><a href="#哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？" class="headerlink" title="哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？"></a>哈希表的概念、构造方法、哈希有几种类型？哈希冲突的解决办法？</h3><ol>
+<li><p>概念:哈希表通过哈希函数将键映射到表中一个位置来操作数据,以巧妙地将查找和插入的时间复杂度降低到O(1)</p>
+</li>
+<li><p>构造方法: 直接地址法; 数字分析法; 平方取中法; 随机数法; </p>
+</li>
+<li><p>哈希冲突的解决方法: </p>
+<ol>
+<li><p>开放地址法:线性探测、二次探测、伪随机探测等。</p>
+</li>
+<li><p>再哈希法:用其他哈希函数重新计算。</p>
+</li>
+<li><p>链地址法:将冲突的元素链起来,链接到同一个位置。</p>
+</li>
+<li><p>建立公共溢出区:将冲突元素放在其他位置。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="判断链表是否有环"><a href="#判断链表是否有环" class="headerlink" title="判断链表是否有环?"></a>判断链表是否有环?</h3><p>快慢指针: 从头开始设置两个指针，快指针每次走2步，慢指针每次走1步，如果快指针先碰到尾，则无环，否则两个指针之后一定会重合，则有环。</p>
+<h3 id="平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造"><a href="#平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造" class="headerlink" title="平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造?"></a>平衡二叉树、二叉排序树、完全二叉树、二叉搜索树的区别及如何构造?</h3><ol>
+<li><p>完全二叉树的每一个节点都与高度为k的满二叉树的1-n编号一一对应。</p>
+</li>
+<li><p>二叉搜索树和二叉排序树是一个东西。</p>
+<ol>
+<li><p>二叉排序树每一个节点都是用于排序的关键码，左子树所有节点关键码都小于根节点的关键码，右子树的所有关键码都大于根节点的关键码，其中，左右子树都是二叉树。对一棵二叉排序树进行中序遍历就可以得到关键码从小到大的排列。</p>
+</li>
+<li><p>二叉搜索树的构造方法主要执行插入操作，进行插入之前必须先检查是否该节点的关键码已经在树中存在，也就是要先查找，假如查找成功，不执行任何操作，假如搜索不成功，就在搜索停止的地方添加新元素。</p>
+</li>
+</ol>
+</li>
+<li><p>平衡二叉树是一种二叉搜索树，它的左右子树高度差的绝对值不超过1。构造一棵平衡二叉树仍然是通过插入节点的方式，每插入一个结点，都应该检查平衡因子，并通过旋转操作使之平衡化。</p>
+</li>
+</ol>
+<h3 id="B树是什么-在数据库中有什么应用？（B数和B-树的区别）"><a href="#B树是什么-在数据库中有什么应用？（B数和B-树的区别）" class="headerlink" title="B树是什么?在数据库中有什么应用？（B数和B+树的区别）?"></a>B树是什么?在数据库中有什么应用？（B数和B+树的区别）?</h3><p>B树的一个结点可以装多个值，读取时，是把整个结点读到内存，然后在内存中，对结点的值进行处理，在内存中处理速度肯定比磁盘快。所以只要树的高度低，IO少，就能够提升查询效率，这是B树的好处之一。</p>
+<p>B树的<strong>缺点</strong>是：不利于范围查找(区间查找)，如果要找 0~100的索引值，那么B树需要多次从根结点开始逐个查找。</p>
+<p>B+树和B树最大的不同是：B+树内部有两种结点，一种是索引结点，一种是叶子结点。B+树的索引结点并不会保存记录，只用于索引，<strong>所有的数据都保存在B+树的叶子结点</strong>中。而<strong>B树则是所有结点都会保存数据</strong>。</p>
+<p><strong>B+树的叶子结点都会被连成一条链表</strong>。叶子本身按索引值的大小从小到大进行排序。即这条链表是 从小到大的。因此可以直接通过遍历链表实现范围查找。</p>
+<h3 id="红黑树原理是什么？建立过程？"><a href="#红黑树原理是什么？建立过程？" class="headerlink" title="红黑树原理是什么？建立过程？"></a>红黑树原理是什么？建立过程？</h3><p>红黑树（Red-Black Tree）是一种自平衡的二叉搜索树，它在插入和删除操作后通过一系列的旋转和颜色调整来保持树的平衡，从而保证了树的高度始终在一个相对较小的范围内，维持了搜索、插入和删除操作的平均时间复杂度为 O(log n)。</p>
+<p>红黑树具有以下特性：</p>
+<ol>
+<li><strong>节点颜色：</strong> 每个节点都被赋予红色或黑色。</li>
+<li><strong>根节点：</strong> 根节点是黑色的。</li>
+<li><strong>叶子节点（空节点）：</strong> 所有叶子节点都是黑色的。</li>
+<li><strong>红色节点的子节点：</strong> 红色节点的子节点必须是黑色的，这确保了没有两个相邻的红色节点。</li>
+<li><strong>从任意节点到其每个叶子的简单路径都包含相同数目的黑色节点：</strong> 这个性质保证了树的平衡性，即从根到叶子的最长路径不会超过最短路径的两倍。</li>
+</ol>
+<p>红黑树的建立过程涉及插入和调整。以下是插入新节点时红黑树的建立过程：</p>
+<ol>
+<li><strong>插入节点：</strong> 将新节点插入到红黑树中，初始状态为红色。</li>
+<li><strong>颜色调整：</strong> 检查插入节点的父节点和叔叔节点的颜色情况，进行以下几种情况的调整：<ul>
+<li>如果父节点是黑色，无需进一步调整，树仍然满足红黑树性质。</li>
+<li>如果父节点是红色，而叔叔节点也是红色，将父节点和叔叔节点变为黑色，将祖父节点变为红色，然后以祖父节点为当前节点进行递归调整，以保持红黑树性质。</li>
+<li>如果父节点是红色，而叔叔节点是黑色或缺失，需要通过旋转来进行调整。</li>
+</ul>
+</li>
+<li><strong>旋转操作：</strong> 旋转操作包括左旋和右旋，以恢复树的平衡性。旋转可以分为以下四种情况，分别对应着插入节点的父节点和祖父节点的位置关系以及插入节点的方向：<ul>
+<li>左旋转</li>
+<li>右旋转</li>
+<li>左右旋转</li>
+<li>右左旋转</li>
+</ul>
+</li>
+</ol>
+<p>通过递归调整和旋转操作，插入新节点后的红黑树会保持平衡性和红黑树性质。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>Learn</tag>
       </tags>
   </entry>
 </search>
