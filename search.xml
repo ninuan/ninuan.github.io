@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>自建测速节点，解决V2rayN测速为0的问题</title>
-    <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
-<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
-<li>一个域名（需要解析到cloudflare上面）</li>
-<li>科学上网</li>
-</ol>
-<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
-<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
-</li>
-<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
-</li>
-<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
-</li>
-<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
-</li>
-<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown配合图床上传图片到Github</title>
     <url>/2023/08/07/Markdown%E9%85%8D%E5%90%88%E5%9B%BE%E5%BA%8A%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0Github/</url>
     <content><![CDATA[<p>Markdown配合图床上传图片到Github</p>
@@ -160,39 +125,38 @@
       </tags>
   </entry>
   <entry>
-    <title>节点测速的高速方法</title>
-    <url>/2023/07/23/%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E7%9A%84%E9%AB%98%E9%80%9F%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="高速优选节点快速的IP"><a href="#高速优选节点快速的IP" class="headerlink" title="高速优选节点快速的IP"></a>高速优选节点快速的IP</h2><ol>
-<li><p>根据规则找到反代cloudflare的ip，网址<a href="https://fofa.info/">https://fofa.info</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 规则--根据自己想要的节点自己选择</span></span><br><span class="line">国内反代IP：server==&quot;cloudflare&quot; &amp;&amp; port==&quot;80&quot; &amp;&amp; header=&quot;Forbidden&quot; &amp;&amp; country==&quot;CN&quot;</span><br><span class="line">剔除CF：asn!=&quot;13335&quot; &amp;&amp; asn!=&quot;209242&quot;</span><br><span class="line">阿里云：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;45102&quot;</span><br><span class="line">甲骨文韩国：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;31898&quot; &amp;&amp; country==&quot;KR&quot;</span><br><span class="line">搬瓦工：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;25820&quot;</span><br></pre></td></tr></table></figure>
+    <title>自建测速节点，解决V2rayN测速为0的问题</title>
+    <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
+<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
+<li>一个域名（需要解析到cloudflare上面）</li>
+<li>科学上网</li>
+</ol>
+<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
+<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
 </li>
-<li><p>网站注册</p>
-<p>临时邮箱：<a href="http://24mail.chacuo.net/">http://24mail.chacuo.net</a><br>（一个邮箱额度有限，可以用虚拟邮箱）</p>
+<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
 </li>
-<li><p>搜索完成后，点击下载</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204214913.png" alt="image-20230723204214913" style="zoom:50%;" />
+<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>下载到本地后，打开，找到对应的ip复制</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204248143.png" alt="image-20230723204248143" style="zoom:50%;" />
+<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
 </li>
-<li><p>打开网址<a href="https://bulianglin.com/archives/cdn.html">https://bulianglin.com/archives/cdn.html</a> </p>
-<p>原始节点需要用自己的节点分享出来，地址的话填写自己的伪装域名</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210812062.png" alt="image-20230723210812062" style="zoom:50%;" />
-
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204500044.png" alt="image-20230723204500044" style="zoom:50%;" />
+<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
 </li>
-<li><p>下载测速工具<a href="https://short.ninuan.link/node">https://short.ninuan.link/node</a> ,解压后打开exe文件</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210248913.png" alt="image-20230723210248913" style="zoom:50%;" />
-
-<p>导入进去之后，<code>Ctrl + A</code>全选，右键测试延迟和速度（延迟内核和下载内核vless都选Xray，vmess内核选clash、Xray），测试完成之后复制节点导入到科学上网工具就行</p>
-</li>
+<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
 </ol>
 ]]></content>
       <categories>
-        <category>工具</category>
+        <category>教程</category>
       </categories>
       <tags>
-        <tag>vpn</tag>
+        <tag>cloudflare</tag>
       </tags>
   </entry>
   <entry>
@@ -258,10 +222,10 @@
 </ul>
 </li>
 <li><strong>旋转操作：</strong> 旋转操作包括左旋和右旋，以恢复树的平衡性。旋转可以分为以下四种情况，分别对应着插入节点的父节点和祖父节点的位置关系以及插入节点的方向：<ul>
-<li>左旋转</li>
-<li>右旋转</li>
-<li>左右旋转</li>
-<li>右左旋转</li>
+<li>LL旋转</li>
+<li>RR旋转</li>
+<li>LR旋转</li>
+<li>RL旋转</li>
 </ul>
 </li>
 </ol>
@@ -350,14 +314,73 @@
 <td>稳定</td>
 </tr>
 </tbody></table>
-<h3 id="最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？"><a href="#最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？" class="headerlink" title="最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？"></a>最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？</h3><p>​	最小生成树：普利姆，克鲁斯卡尔</p>
-<p>​	最短路径：迪杰斯特拉，弗洛伊德</p>
+<h3 id="最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？"><a href="#最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？" class="headerlink" title="最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？"></a>最小生成树和最短路径用什么算法来实现？（迪杰斯特拉、弗洛依德、普利姆、克鲁斯卡尔）算法的基本思想是什么？算法的时间复杂度？如何进行优化？</h3><ol>
+<li><p>最小生成树：普利姆，克鲁斯卡尔</p>
+<p>最短路径：迪杰斯特拉（$O(n^2)$），弗洛伊德（$O(n^3)$）（单源负权边时是弗洛伊德算法）</p>
+</li>
+<li><p>算法的基本思想：</p>
+<p>迪杰斯特拉，普利姆，克鲁斯卡尔都是贪心的思想</p>
+<p>弗洛伊德是动态规划的思想</p>
+</li>
+<li><p>堆优化的迪杰斯特拉，克鲁斯卡尔，普利姆均为$O(nlogn)$</p>
+</li>
+</ol>
+<h3 id="介绍一下字符串匹配算法：朴素的匹配算法和KMP算法。（如何实现要会用语言描述）"><a href="#介绍一下字符串匹配算法：朴素的匹配算法和KMP算法。（如何实现要会用语言描述）" class="headerlink" title="介绍一下字符串匹配算法：朴素的匹配算法和KMP算法。（如何实现要会用语言描述）"></a>介绍一下字符串匹配算法：朴素的匹配算法和KMP算法。（如何实现要会用语言描述）</h3><p>​	<strong>1. 朴素的匹配算法：</strong> 朴素的匹配算法也称为暴力匹配算法，它从文本串的每个位置开始，尝试将模式串与文本串的对应字符逐个比较，如果发现不匹配的字符，则将模式串向右移动一个位置，继续比较。这个过程会持续直到找到匹配或者文本串中没有足够的字符供比较。</p>
+<p>​	<strong>实现步骤：</strong></p>
+<ol>
+<li>从文本串的第一个字符开始，遍历到文本串的倒数第 len(模式串) 个字符。</li>
+<li>对于每个位置，将模式串与文本串当前位置开始的子串逐个字符比较，直到发现不匹配的字符或者完全匹配为止。</li>
+<li>如果完全匹配，则找到了一个匹配的位置；如果不匹配，则将模式串向右移动一个位置，继续比较下一个子串。</li>
+</ol>
+<p>​	<strong>2. KMP算法：</strong> KMP算法通过利用模式串的部分匹配表（也称为失效函数或跳转表）来避免在文本串中不必要的比较，从而提高了匹配的效率。它在模式串与文本串匹配的过程中，根据已经匹配的字符，选择跳过一些比较，直接将模式串向右移动到正确的位置。</p>
+<p>​	<strong>实现步骤：</strong></p>
+<ol>
+<li>构建模式串的部分匹配表，这个表记录了每个位置上前缀子串与后缀子串的最长公共前缀长度。</li>
+<li>在文本串中，使用模式串的部分匹配表来指导匹配。当发生不匹配时，根据部分匹配表的值，将模式串向右移动一定的距离，而不是直接从下一个字符重新开始匹配。</li>
+</ol>
+<p>​	KMP算法的优势在于它避免了不必要的比较，使得算法的时间复杂度降低到O(n + m)，其中n是文本串的长度，m是模式串的长度。这使得KMP算法在大规模文本中查找模式更加高效。</p>
 ]]></content>
       <categories>
         <category>随笔</category>
       </categories>
       <tags>
         <tag>Learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>节点测速的高速方法</title>
+    <url>/2023/07/23/%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E7%9A%84%E9%AB%98%E9%80%9F%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="高速优选节点快速的IP"><a href="#高速优选节点快速的IP" class="headerlink" title="高速优选节点快速的IP"></a>高速优选节点快速的IP</h2><ol>
+<li><p>根据规则找到反代cloudflare的ip，网址<a href="https://fofa.info/">https://fofa.info</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 规则--根据自己想要的节点自己选择</span></span><br><span class="line">国内反代IP：server==&quot;cloudflare&quot; &amp;&amp; port==&quot;80&quot; &amp;&amp; header=&quot;Forbidden&quot; &amp;&amp; country==&quot;CN&quot;</span><br><span class="line">剔除CF：asn!=&quot;13335&quot; &amp;&amp; asn!=&quot;209242&quot;</span><br><span class="line">阿里云：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;45102&quot;</span><br><span class="line">甲骨文韩国：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;31898&quot; &amp;&amp; country==&quot;KR&quot;</span><br><span class="line">搬瓦工：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;25820&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网站注册</p>
+<p>临时邮箱：<a href="http://24mail.chacuo.net/">http://24mail.chacuo.net</a><br>（一个邮箱额度有限，可以用虚拟邮箱）</p>
+</li>
+<li><p>搜索完成后，点击下载</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204214913.png" alt="image-20230723204214913" style="zoom:50%;" />
+</li>
+<li><p>下载到本地后，打开，找到对应的ip复制</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204248143.png" alt="image-20230723204248143" style="zoom:50%;" />
+</li>
+<li><p>打开网址<a href="https://bulianglin.com/archives/cdn.html">https://bulianglin.com/archives/cdn.html</a> </p>
+<p>原始节点需要用自己的节点分享出来，地址的话填写自己的伪装域名</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210812062.png" alt="image-20230723210812062" style="zoom:50%;" />
+
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204500044.png" alt="image-20230723204500044" style="zoom:50%;" />
+</li>
+<li><p>下载测速工具<a href="https://short.ninuan.link/node">https://short.ninuan.link/node</a> ,解压后打开exe文件</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210248913.png" alt="image-20230723210248913" style="zoom:50%;" />
+
+<p>导入进去之后，<code>Ctrl + A</code>全选，右键测试延迟和速度（延迟内核和下载内核vless都选Xray，vmess内核选clash、Xray），测试完成之后复制节点导入到科学上网工具就行</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
       </tags>
   </entry>
 </search>
