@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vpn搭建教程</title>
+    <url>/2023/07/19/VPN%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="VPN搭建教程"><a href="#VPN搭建教程" class="headerlink" title="VPN搭建教程"></a>VPN搭建教程</h1><p>DNS书写：</p>
+<ol>
+<li><p>安装trojan</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装nginx搭建https伪装</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo yum update //更新软件包</span><br><span class="line"></span><br><span class="line">//安装nginx</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">//启动nginx</span><br><span class="line">systemctl enable nginx; systemctl start nginx</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">默认情况下，Nginx 会监听 80 端口，您可以通过在浏览器中输入服务器的 IP 地址或域名来验证 Nginx 是否安装成功。如果您能够看到 Nginx 的欢迎页面，则表示安装成功。如果未能成功启动 Nginx，请检查 Nginx 的配置文件是否正确，并检查是否有其它服务占用了 80 端口。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">// nginx页面地址在/usr/share/nginx/html  修改下面的nginx即可搭建成功界面</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>证书申请</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">//安装certbot</span><br><span class="line">sudo yum install certbot</span><br><span class="line"></span><br><span class="line">// 申请证书</span><br><span class="line">sudo certbot certonly --webroot -w /path/to/your/application/root --domain example.com --email your-email@example.com</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">/path/to/your/application/root 填写自己前端网页地址，例如本实例即为/usr/share/nginx/html</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>4.完善</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//放前端页面</span><br><span class="line">具体位置在nginx.conf里面可以直接找。</span><br><span class="line">//改nginx配置</span><br><span class="line">直接复制nginx.conf替换原来的。</span><br><span class="line">VPS的nginx.conf位置：/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//改trojan配置：</span><br><span class="line">将config.json文件复制替换原来的：</span><br><span class="line">Trojan的config.json位置:/usr/local/etc/trojan/config.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置重启和开机自启动，这个直接问chatgpt</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bbr加速安装</span><br><span class="line">//先安装wget</span><br><span class="line">yum install wget</span><br><span class="line"></span><br><span class="line">//安装bbr</span><br><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown配合图床上传图片到Github</title>
     <url>/2023/08/07/Markdown%E9%85%8D%E5%90%88%E5%9B%BE%E5%BA%8A%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0Github/</url>
     <content><![CDATA[<p>Markdown配合图床上传图片到Github</p>
@@ -44,30 +71,38 @@
       </tags>
   </entry>
   <entry>
-    <title>vpn搭建教程</title>
-    <url>/2023/07/19/VPN%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="VPN搭建教程"><a href="#VPN搭建教程" class="headerlink" title="VPN搭建教程"></a>VPN搭建教程</h1><p>DNS书写：</p>
-<ol>
-<li><p>安装trojan</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装nginx搭建https伪装</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo yum update //更新软件包</span><br><span class="line"></span><br><span class="line">//安装nginx</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">//启动nginx</span><br><span class="line">systemctl enable nginx; systemctl start nginx</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">默认情况下，Nginx 会监听 80 端口，您可以通过在浏览器中输入服务器的 IP 地址或域名来验证 Nginx 是否安装成功。如果您能够看到 Nginx 的欢迎页面，则表示安装成功。如果未能成功启动 Nginx，请检查 Nginx 的配置文件是否正确，并检查是否有其它服务占用了 80 端口。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">// nginx页面地址在/usr/share/nginx/html  修改下面的nginx即可搭建成功界面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>证书申请</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">//安装certbot</span><br><span class="line">sudo yum install certbot</span><br><span class="line"></span><br><span class="line">// 申请证书</span><br><span class="line">sudo certbot certonly --webroot -w /path/to/your/application/root --domain example.com --email your-email@example.com</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">/path/to/your/application/root 填写自己前端网页地址，例如本实例即为/usr/share/nginx/html</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>4.完善</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//放前端页面</span><br><span class="line">具体位置在nginx.conf里面可以直接找。</span><br><span class="line">//改nginx配置</span><br><span class="line">直接复制nginx.conf替换原来的。</span><br><span class="line">VPS的nginx.conf位置：/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//改trojan配置：</span><br><span class="line">将config.json文件复制替换原来的：</span><br><span class="line">Trojan的config.json位置:/usr/local/etc/trojan/config.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置重启和开机自启动，这个直接问chatgpt</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+    <title>自建测速节点，解决V2rayN测速为0的问题</title>
+    <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
+<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
+<li>一个域名（需要解析到cloudflare上面）</li>
+<li>科学上网</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bbr加速安装</span><br><span class="line">//先安装wget</span><br><span class="line">yum install wget</span><br><span class="line"></span><br><span class="line">//安装bbr</span><br><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-
+<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
+<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
+</li>
+<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
+</li>
+<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
+</li>
+<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
+</li>
+<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
+</ol>
 ]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>vpn</tag>
+        <tag>cloudflare</tag>
       </tags>
   </entry>
   <entry>
@@ -115,41 +150,6 @@
 </li>
 <li><p>通过你添加的域名加上第五步中你设置的值即可访问</p>
 <img src="https://github.com/ninuan/images/raw/main//images/image-20230720234900048.png" alt="image-20230720234900048" style="zoom:50%;" /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自建测速节点，解决V2rayN测速为0的问题</title>
-    <url>/2023/07/21/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
-<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
-<li>一个域名（需要解析到cloudflare上面）</li>
-<li>科学上网</li>
-</ol>
-<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
-<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
-</li>
-<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
-</li>
-<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
-</li>
-<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
-</li>
-<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
 </ol>
 ]]></content>
       <categories>
@@ -508,6 +508,147 @@
 <p><a href="https://www.cnblogs.com/zyf-zhaoyafei/p/4716297.html">计算机网络之面试常考</a></p>
 <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h3 id="操作系统的特点？功能？"><a href="#操作系统的特点？功能？" class="headerlink" title="操作系统的特点？功能？"></a>操作系统的特点？功能？</h3><p>​	操作系统特点：操作系统的四个基本特征是并发,共享,异步,虚拟。而每个操作系统又有其独特的特征，如我们常用的linux系统有开放性;多用户多任务;设备的独立性;强大的网络功能和网络可靠性等特点。</p>
 <p>​	操作系统的功能：管理计算机系统的全部软、硬件资源 , 合理组织计算机的工作流程 , 以达到充分发挥计算机资源的效率 , 为用户提供友好界面</p>
+<h3 id="中断和系统调用的区别"><a href="#中断和系统调用的区别" class="headerlink" title="中断和系统调用的区别"></a>中断和系统调用的区别</h3><p>​	中断分两种，硬中断和软中断；硬中断是实实在在的硬件发出的中断，cpu检测到发生中断后，保护现场，查找中断向量地址，执行中断服务程序，之后，重新选择进程进行调度。软中断是由指令执行过程中发出的中断，但是并没有中断向量表，而是有对应的散转表，查找对应的中断号，转中断服务程序，之后的和硬中断相同。</p>
+<pre><code> 系统调用是软中断的一种。
+</code></pre>
+<h3 id="进程、线程的概念以及区别？进程间的通信方式？"><a href="#进程、线程的概念以及区别？进程间的通信方式？" class="headerlink" title="进程、线程的概念以及区别？进程间的通信方式？"></a>进程、线程的概念以及区别？进程间的通信方式？</h3><ol>
+<li>​	区别：<ol>
+<li>进程是具有一定功能的程序，是系统进行资源分配调度的一个独立单位</li>
+<li>线程是进程的一个实体，是CPU调度分配的基本单位，线程之间基本上不拥有系统资源</li>
+<li>一个程序至少有一个进程，一个进程至少有一个线程，资源分配给进程，同一个进程下所有线程共享该进程的资源</li>
+</ol>
+</li>
+<li>进程间的通信方式：<a href="https://blog.csdn.net/zhaohong_bo/article/details/89552188">https://blog.csdn.net/zhaohong_bo/article/details/89552188</a></li>
+<li>线程哪些资源共享？哪些资源不共享？<ol>
+<li>共享：堆、全局变量、静态变量、文件等共有资源</li>
+<li>独享：栈、寄存器</li>
+</ol>
+</li>
+</ol>
+<h3 id="进程有哪几种状态，状态之间的转换、进程调度策略？"><a href="#进程有哪几种状态，状态之间的转换、进程调度策略？" class="headerlink" title="进程有哪几种状态，状态之间的转换、进程调度策略？"></a>进程有哪几种状态，状态之间的转换、进程调度策略？</h3><ol>
+<li><p>四种状态：就绪，运行，阻塞，终止</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230817171832031.png" alt="image-20230817171832031" style="zoom:67%;" />
+</li>
+<li><p>进程调度策略</p>
+<ol>
+<li><p>先来先服务调度算法</p>
+</li>
+<li><p>短作业优先调度算法</p>
+</li>
+<li><p>高优先权优先调度算法</p>
+<ol>
+<li>非抢占式优先权算法</li>
+<li>抢占式优先权调度算法</li>
+</ol>
+</li>
+<li><p>高响应比优先调度算法</p>
+<p>$R_p &#x3D; \frac{等待时间+要求服务时间}{要求服务时间} &#x3D; \frac{响应时间}{要求服务时间}$</p>
+</li>
+<li><p>时间片轮转法</p>
+</li>
+<li><p>多级反馈队列调度算法</p>
+<ol>
+<li>应设置多个就绪队列，并为各个队列赋予不同的优先级</li>
+<li>当一个新进程进入内存后，首先将它放入第一队列的末尾，按FCFS原则排队等待调度</li>
+<li>仅当第一队列空闲时，调度程序才调度第二序列中的进程运行</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="什么是死锁？死锁产生的四个必要条件？如何预防死锁？"><a href="#什么是死锁？死锁产生的四个必要条件？如何预防死锁？" class="headerlink" title="什么是死锁？死锁产生的四个必要条件？如何预防死锁？"></a>什么是死锁？死锁产生的四个必要条件？如何预防死锁？</h3><ol>
+<li>死锁：是指多个进程因竞争资源而造成的一种僵局(互相等待)，若无外力作用，这些进程都将无法向前推进</li>
+<li>四个必要条件：<ol>
+<li>互斥条件</li>
+<li>请求和保持条件</li>
+<li>不剥夺条件</li>
+<li>环路等待条件</li>
+</ol>
+</li>
+<li>产生死锁的原因：<ol>
+<li>竞争不可抢占型资源</li>
+<li>竞争可消耗型资源（硬件中断、信号、消息、缓冲区内的消息等）</li>
+<li>进程推进顺序不当</li>
+</ol>
+</li>
+<li>如何预防死锁：<ol>
+<li>资源一次性分配（一次性分配所有资源，这样就不会再有请求了，破坏了请求条件）</li>
+<li>允许程序获得运行初期条件的所有资源后开始运行，过程中逐步释放给自己的已用完的资源，然后再请求新的资源（破坏请求保持条件）</li>
+<li>可剥夺资源：即当某进程获得了部分资源，但得不到其他资源，则释放已占有的资源（破坏不可剥夺条件）</li>
+<li>资源有序分配法：系统给每类资源赋予一个编号，每一个进程按编号递增的顺序请资源，释放则相反（破坏环路等待条件）</li>
+</ol>
+</li>
+</ol>
+<h3 id="哲学家进餐有哪些实现方式？"><a href="#哲学家进餐有哪些实现方式？" class="headerlink" title="哲学家进餐有哪些实现方式？"></a>哲学家进餐有哪些实现方式？</h3><ol>
+<li>核心是保证至少有一位哲学家能拿到两只筷子就餐后释放筷子：<ol>
+<li>最多只允许n-1个哲学家拿起筷子就餐</li>
+<li>资源分级算法，奇数号哲学家先拿左边的筷子，偶数号哲学家先拿右边的筷子</li>
+<li>设立规则，当一位哲学家拿起一只筷子时，另一个筷子无法得到，则放下刚刚拿起的筷子</li>
+<li>服务生算法，一次只允许一名哲学家进餐，等到这名哲学家就餐完毕后才允许其他哲学家进餐</li>
+</ol>
+</li>
+</ol>
+<h3 id="简述下银行家算法"><a href="#简述下银行家算法" class="headerlink" title="简述下银行家算法"></a>简述下银行家算法</h3><p>银行家算法是一种最有代表性的避免死锁的算法。在避免死锁方法中允许进程动态地申请资源，但系统在进行资源分配之前，应先计算此次分配资源的安全性，若分配不会导致系统进入不安全状态，则分配，否则等待。为实现银行家算法，系统必须设置若干数据结构。</p>
+<p>银行家算法中的数据结构</p>
+<p>为了实现银行家算法，必须设置以下四个数据结构:</p>
+<ol>
+<li><p>可利用资源向量Available:其初始值是系统中所配置的该类全部可用资源的数目。</p>
+</li>
+<li><p>最大需求矩阵Max:它定义了系统中n个进程中的每一个进程对m类资源的最大需求。</p>
+</li>
+<li><p>分配矩阵Allocation:它定义了系统中每一类资源当前已分配给每一个进程的资源数。</p>
+</li>
+<li><p>需求矩阵Need：用一表示每一个进程尚需的各类资源数。</p>
+</li>
+</ol>
+<h3 id="分页的作用，好处？和分段有什么区别？"><a href="#分页的作用，好处？和分段有什么区别？" class="headerlink" title="分页的作用，好处？和分段有什么区别？"></a>分页的作用，好处？和分段有什么区别？</h3><ol>
+<li>页是信息的物理单位，分页是为了实现非连续分配，以便解决内存碎片问题，或者说分页是由于系统管理的需要。段是信息的逻辑单位，它含有一组意义相对完整的信息，分段的目的是为了更好的实现共享，满足用户的需求。</li>
+<li>页的大小固定且有系统确定，将逻辑地址划分为页号和业内地址是有机器硬件实现的，而段的长度却不固定，决定于用户所编写的程序，通常由编译程序在对源程序进行编译时根据信息的性质来划分</li>
+<li>分页的作业地址空间是一维的；分段的地址空间是二维的</li>
+</ol>
+<h3 id="什么是虚拟内存？什么是共享内存？"><a href="#什么是虚拟内存？什么是共享内存？" class="headerlink" title="什么是虚拟内存？什么是共享内存？"></a>什么是虚拟内存？什么是共享内存？</h3><ol>
+<li>虚拟内存是计算机系统内存管理的一种技术，它使得应用程序认为它拥有连续可用的内存（一个连续完整的地址空间），而实际上，它通常是被分隔成多个物理内存碎片，还有部分暂时存储在外部磁盘存储器上，在需要时进行数据交换。与没有使用虚拟内存技术的系统相比，使用这种技术的系统使得大型程序的编写变得更容易，对真正的物理内存（例如RAM）的使用也更有效率</li>
+<li>共享内存是最快速的进程间通信机制，操作系统在几个进程的地址空间上映射一段内存，然后这几个进程可以在不需要调用操作系统函数的情况下在那段内存上进行读&#x2F;写操作</li>
+</ol>
+<h3 id="页面置换算法？"><a href="#页面置换算法？" class="headerlink" title="页面置换算法？"></a>页面置换算法？</h3><ol>
+<li>最佳置换算法（OPT）：每次选择淘汰的页面将是以后永不使用，或者在最长时间内不再被访问的页面，这样可以保证最低的缺页率</li>
+<li>先进先出置换算法（FIFO）：每次选择淘汰的页面是最早进入内存的页面</li>
+<li>最近最久未使用置换算法：每次淘汰的页面是最近最久未使用的页面</li>
+<li>时钟置换算法：为每个页面设置一个访问位，再将内存中的页面都通过链接指针链接成一个循环队列。当某个页面被访问时，其访问位置设置为1，当需要淘汰一个页面时，只需检查页的访问位。如果是0，就选择该页换出；如果是1，暂不换出，将访问位改为0，继续检查下一个页面，若第一轮 扫描中所有的页面都是1，则将这些页面的访问位一次置为0后，再进行第二轮扫描（第二轮扫描中一定会有访问位为0的页面，因此简单的CLOCK算法选择一个淘汰页面最多会经过两轮扫描）</li>
+<li>改进型时钟置换算法：<a href="https://www.jianshu.com/p/18285ecffbfb">https://www.jianshu.com/p/18285ecffbfb</a></li>
+</ol>
+<h3 id="磁盘调度算法以及磁盘空间存储管理？"><a href="#磁盘调度算法以及磁盘空间存储管理？" class="headerlink" title="磁盘调度算法以及磁盘空间存储管理？"></a>磁盘调度算法以及磁盘空间存储管理？</h3><p><a href="https://blog.csdn.net/lishanleilixin/article/details/89709194">https://blog.csdn.net/lishanleilixin/article/details/89709194</a></p>
+<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1><h3 id="冯诺依曼机的体系结构"><a href="#冯诺依曼机的体系结构" class="headerlink" title="冯诺依曼机的体系结构"></a>冯诺依曼机的体系结构</h3><img src="https://github.com/ninuan/images/raw/main//images/image-20230818142451335.png" alt="image-20230818142451335" style="zoom: 67%;" />
+
+<p>​	主要由五大部件组成：</p>
+<ol>
+<li>存储器用来存放数据和程序</li>
+<li>运算器主要运行算数运算和逻辑运算，并将中间结果暂存到运算器中</li>
+<li>控制器主要用来控制和指挥程序和数据的输入运行，以及处理运算结果</li>
+<li>输入设备用来将人们熟悉的信息形式转换为机器能够识别的信息形式，常见的由键盘，鼠标等</li>
+<li>输出设备可以将机器运算结果转换为人们熟悉的信息形式，如打印机输出，显示器输出等</li>
+</ol>
+<h3 id="衡量计算机性能指标"><a href="#衡量计算机性能指标" class="headerlink" title="衡量计算机性能指标"></a>衡量计算机性能指标</h3><ol>
+<li><p>吞吐量：表征一台计算机在某一时间间隔内能够处理的信息量，单位是字节&#x2F;秒</p>
+</li>
+<li><p>响应时间：表征从输入有效到系统产生响应之间的时间度量，用时间单位来度量</p>
+</li>
+<li><p>利用率：表示在给定的时间间隔内，系统被实际使用的时间所占的比例，一般用百分比表示</p>
+</li>
+<li><p>处理机字长：指处理机运算器中一次能够完成二进制运算的位数，字长越长，表示计算的精度越高</p>
+</li>
+<li><p>总线宽度：一般指CPU中运算器与存储器之间进行互连的内部总线二进制位数</p>
+</li>
+<li><p>存储器容量：存储器中所有存储单元的总数目，通常用KB等表示</p>
+</li>
+<li><p>存储器带宽：存储器的速度指标，单位时间内从存储器读出的二进制数信息量，一般用字节数&#x2F;秒表示</p>
+</li>
+<li><p>主频&#x2F;时间周期：CPU的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟，主时钟的频率（f）叫CPU的主频。度量单位是MHz、GHz。   主频的倒数称为CPU时钟周期（T），即T&#x3D;1&#x2F;f，度量单位是微秒、纳秒。</p>
+</li>
+<li><p>CPU执行时间：表示CPU执行一段程序所占用的CPU时间，可用下式计算：   CPU执行时间 ＝   CPU时钟周期数 × CPU时钟周期长 CPI：表示每条指令周期数，即执行一条指令所需的平均时钟周期数。  用下式计算：</p>
+<p>MIPS:每秒百万条数据。MIPS是单位时间内的执行指令数，所以MIPS值越高说明机器速度越快。 MFLOPS是基于操作而非指令的，只能用来衡量机器浮点操作的性能，而不能体现机器的整体性能</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>随笔</category>
