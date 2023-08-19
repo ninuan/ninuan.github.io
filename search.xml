@@ -1,6 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>cloudflare创建自己的短链生成网站</title>
+    <url>/2023/08/18/%E4%BD%BF%E7%94%A8cloudflare%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%AD%E9%93%BE%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
+<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
+<li>一个域名（需要解析到cloudflare上面）</li>
+<li>科学上网</li>
+</ol>
+<h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
+<li><p>登录cloudflare</p>
+</li>
+<li><p>点击<code>Workers 和 Pages</code></p>
+</li>
+<li><p>点击<strong>KV</strong></p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720232556634.png" alt="image-20230720232556634" style="zoom:50%;" />
+</li>
+<li><p>点击创建命名空间，点击添加</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720232658914.png" alt="image-20230720232658914" style="zoom:50%;" />
+</li>
+<li><p>完成之后点击查看，输入密钥和值（随意，或者可以按照我的填写），点击添加条目</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720232900640.png" alt="image-20230720232900640" style="zoom:50%;" />
+</li>
+<li><p>点击概述，创建应用程序</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233042717.png" alt="image-20230720233042717" style="zoom:50%;" />
+</li>
+<li><p>点击创建Worker，名称随意，点击部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233249511.png" alt="image-20230720233249511" style="zoom:50%;" />
+</li>
+<li><p>点击编辑代码，进入之后把原先的代码删完，复制这个代码<code>https://github.com/a624587332/Url-Shorten-Worker/blob/main/index.js</code>,粘贴，修改178行成baidu.com等国内网站或者你自己的博客地址也行，然后点击保存并部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233559571.png" alt="image-20230720233559571" style="zoom:50%;" />
+</li>
+<li><p>回到workers空间，点击设置，点击变量</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233741484.png" alt="image-20230720233741484" style="zoom:50%;" />
+</li>
+<li><p>下滑找到KV命名空间绑定，名称填<code>LINKS</code></p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233919422.png" alt="image-20230720233919422" style="zoom:50%;" />
+</li>
+<li><p>现在即可通过访问提供的网址进行访问<code>https://....workers.dev/dlj</code>，<code>dlj</code>就是你在第五部中添加的值，因为dev域名污染严重，有时候会进不去，我们可以绑定自己的域名，点击查看（如果没有域名，到这一步即可以使用）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720234442039.png" alt="image-20230720234442039" style="zoom:50%;" />
+</li>
+<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720234555680.png" alt="image-20230720234555680" style="zoom: 50%;" />
+</li>
+<li><p>通过你添加的域名加上第五步中你设置的值即可访问</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230720234900048.png" alt="image-20230720234900048" style="zoom:50%;" /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>cloudflare</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自建测速节点，解决V2rayN测速为0的问题</title>
+    <url>/2023/08/18/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
+<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
+<li>一个域名（需要解析到cloudflare上面）</li>
+<li>科学上网</li>
+</ol>
+<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
+<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
+</li>
+<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
+</li>
+<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
+</li>
+<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
+</li>
+<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>cloudflare</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>节点测速的高速方法</title>
+    <url>/2023/08/18/%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E7%9A%84%E9%AB%98%E9%80%9F%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="高速优选节点快速的IP"><a href="#高速优选节点快速的IP" class="headerlink" title="高速优选节点快速的IP"></a>高速优选节点快速的IP</h2><ol>
+<li><p>根据规则找到反代cloudflare的ip，网址<a href="https://fofa.info/">https://fofa.info</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 规则--根据自己想要的节点自己选择</span></span><br><span class="line">国内反代IP：server==&quot;cloudflare&quot; &amp;&amp; port==&quot;80&quot; &amp;&amp; header=&quot;Forbidden&quot; &amp;&amp; country==&quot;CN&quot;</span><br><span class="line">剔除CF：asn!=&quot;13335&quot; &amp;&amp; asn!=&quot;209242&quot;</span><br><span class="line">阿里云：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;45102&quot;</span><br><span class="line">甲骨文韩国：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;31898&quot; &amp;&amp; country==&quot;KR&quot;</span><br><span class="line">搬瓦工：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;25820&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网站注册</p>
+<p>临时邮箱：<a href="http://24mail.chacuo.net/">http://24mail.chacuo.net</a><br>（一个邮箱额度有限，可以用虚拟邮箱）</p>
+</li>
+<li><p>搜索完成后，点击下载</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204214913.png" alt="image-20230723204214913" style="zoom:50%;" />
+</li>
+<li><p>下载到本地后，打开，找到对应的ip复制</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204248143.png" alt="image-20230723204248143" style="zoom:50%;" />
+</li>
+<li><p>打开网址<a href="https://bulianglin.com/archives/cdn.html">https://bulianglin.com/archives/cdn.html</a> </p>
+<p>原始节点需要用自己的节点分享出来，地址的话填写自己的伪装域名</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210812062.png" alt="image-20230723210812062" style="zoom:50%;" />
+
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204500044.png" alt="image-20230723204500044" style="zoom:50%;" />
+</li>
+<li><p>下载测速工具<a href="https://short.ninuan.link/node">https://short.ninuan.link/node</a> ,解压后打开exe文件</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210248913.png" alt="image-20230723210248913" style="zoom:50%;" />
+
+<p>导入进去之后，<code>Ctrl + A</code>全选，右键测试延迟和速度（延迟内核和下载内核vless都选Xray，vmess内核选clash、Xray），测试完成之后复制节点导入到科学上网工具就行</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown配合图床上传图片到Github</title>
     <url>/2023/08/18/Markdown%E9%85%8D%E5%90%88%E5%9B%BE%E5%BA%8A%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0Github/</url>
     <content><![CDATA[<p>Markdown配合图床上传图片到Github</p>
@@ -65,96 +190,6 @@
 ]]></content>
       <categories>
         <category>教程</category>
-      </categories>
-      <tags>
-        <tag>vpn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cloudflare创建自己的短链生成网站</title>
-    <url>/2023/08/18/%E4%BD%BF%E7%94%A8cloudflare%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%AD%E9%93%BE%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
-<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
-<li>一个域名（需要解析到cloudflare上面）</li>
-<li>科学上网</li>
-</ol>
-<h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
-<li><p>登录cloudflare</p>
-</li>
-<li><p>点击<code>Workers 和 Pages</code></p>
-</li>
-<li><p>点击<strong>KV</strong></p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720232556634.png" alt="image-20230720232556634" style="zoom:50%;" />
-</li>
-<li><p>点击创建命名空间，点击添加</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720232658914.png" alt="image-20230720232658914" style="zoom:50%;" />
-</li>
-<li><p>完成之后点击查看，输入密钥和值（随意，或者可以按照我的填写），点击添加条目</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720232900640.png" alt="image-20230720232900640" style="zoom:50%;" />
-</li>
-<li><p>点击概述，创建应用程序</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233042717.png" alt="image-20230720233042717" style="zoom:50%;" />
-</li>
-<li><p>点击创建Worker，名称随意，点击部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233249511.png" alt="image-20230720233249511" style="zoom:50%;" />
-</li>
-<li><p>点击编辑代码，进入之后把原先的代码删完，复制这个代码<code>https://github.com/a624587332/Url-Shorten-Worker/blob/main/index.js</code>,粘贴，修改178行成baidu.com等国内网站或者你自己的博客地址也行，然后点击保存并部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233559571.png" alt="image-20230720233559571" style="zoom:50%;" />
-</li>
-<li><p>回到workers空间，点击设置，点击变量</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233741484.png" alt="image-20230720233741484" style="zoom:50%;" />
-</li>
-<li><p>下滑找到KV命名空间绑定，名称填<code>LINKS</code></p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720233919422.png" alt="image-20230720233919422" style="zoom:50%;" />
-</li>
-<li><p>现在即可通过访问提供的网址进行访问<code>https://....workers.dev/dlj</code>，<code>dlj</code>就是你在第五部中添加的值，因为dev域名污染严重，有时候会进不去，我们可以绑定自己的域名，点击查看（如果没有域名，到这一步即可以使用）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720234442039.png" alt="image-20230720234442039" style="zoom:50%;" />
-</li>
-<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720234555680.png" alt="image-20230720234555680" style="zoom: 50%;" />
-</li>
-<li><p>通过你添加的域名加上第五步中你设置的值即可访问</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230720234900048.png" alt="image-20230720234900048" style="zoom:50%;" /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>节点测速的高速方法</title>
-    <url>/2023/08/18/%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E7%9A%84%E9%AB%98%E9%80%9F%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="高速优选节点快速的IP"><a href="#高速优选节点快速的IP" class="headerlink" title="高速优选节点快速的IP"></a>高速优选节点快速的IP</h2><ol>
-<li><p>根据规则找到反代cloudflare的ip，网址<a href="https://fofa.info/">https://fofa.info</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 规则--根据自己想要的节点自己选择</span></span><br><span class="line">国内反代IP：server==&quot;cloudflare&quot; &amp;&amp; port==&quot;80&quot; &amp;&amp; header=&quot;Forbidden&quot; &amp;&amp; country==&quot;CN&quot;</span><br><span class="line">剔除CF：asn!=&quot;13335&quot; &amp;&amp; asn!=&quot;209242&quot;</span><br><span class="line">阿里云：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;45102&quot;</span><br><span class="line">甲骨文韩国：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;31898&quot; &amp;&amp; country==&quot;KR&quot;</span><br><span class="line">搬瓦工：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;25820&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>网站注册</p>
-<p>临时邮箱：<a href="http://24mail.chacuo.net/">http://24mail.chacuo.net</a><br>（一个邮箱额度有限，可以用虚拟邮箱）</p>
-</li>
-<li><p>搜索完成后，点击下载</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204214913.png" alt="image-20230723204214913" style="zoom:50%;" />
-</li>
-<li><p>下载到本地后，打开，找到对应的ip复制</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204248143.png" alt="image-20230723204248143" style="zoom:50%;" />
-</li>
-<li><p>打开网址<a href="https://bulianglin.com/archives/cdn.html">https://bulianglin.com/archives/cdn.html</a> </p>
-<p>原始节点需要用自己的节点分享出来，地址的话填写自己的伪装域名</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210812062.png" alt="image-20230723210812062" style="zoom:50%;" />
-
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204500044.png" alt="image-20230723204500044" style="zoom:50%;" />
-</li>
-<li><p>下载测速工具<a href="https://short.ninuan.link/node">https://short.ninuan.link/node</a> ,解压后打开exe文件</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210248913.png" alt="image-20230723210248913" style="zoom:50%;" />
-
-<p>导入进去之后，<code>Ctrl + A</code>全选，右键测试延迟和速度（延迟内核和下载内核vless都选Xray，vmess内核选clash、Xray），测试完成之后复制节点导入到科学上网工具就行</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具</category>
       </categories>
       <tags>
         <tag>vpn</tag>
@@ -768,47 +803,90 @@
 <li><strong>V模型（V-Model）：</strong> V模型将软件开发与测试活动紧密结合，每个开发阶段都有对应的测试阶段。适用于强调测试和验证的项目。</li>
 <li><strong>脚手架模型（Scaffold Model）：</strong> 脚手架模型着重于通过快速生成原型来快速验证概念和需求，然后再基于原型构建稳定的解决方案。</li>
 </ol>
-<h3 id="黑盒测试和白盒测试有什么区别？"><a href="#黑盒测试和白盒测试有什么区别？" class="headerlink" title="黑盒测试和白盒测试有什么区别？"></a>黑盒测试和白盒测试有什么区别？</h3>]]></content>
+<h3 id="黑盒测试和白盒测试有什么区别？"><a href="#黑盒测试和白盒测试有什么区别？" class="headerlink" title="黑盒测试和白盒测试有什么区别？"></a>黑盒测试和白盒测试有什么区别？</h3><ol>
+<li>测试方法不同：<ol>
+<li>黑盒测试：功能测试，是通过测试来检测每个功能是否都能正常使用。</li>
+<li>白盒测试：称结构测试、透明盒测试、逻辑驱动测试或基于代码的测试。</li>
+</ol>
+</li>
+<li>测试目的不同：<ol>
+<li>黑盒测试：把程序看作一个不能打开的黑盒子，在完全不考虑程序内部结构和内部特性的情况下，在程序接口进行测试，只检查程序功能是否按照需求规格说明书的规定正常使用，程序是否能适当地接收输入数据而产生正确的输出信息。</li>
+<li>白盒测试：通过检查软件内部的逻辑结构，对软件中的逻辑路径进行覆盖测试。在程序不同地方设立检查点，检查程序的状态，以确定实际运行状态与预期状态是否一致。</li>
+</ol>
+</li>
+<li>测试原则不同：<ol>
+<li>黑盒测试：以用户的角度，从输入数据与输出数据的对应关系出发进行测试的。很明显，如果外部特性本身设计有问题或规格说明的规定有误，用黑盒测试方法是发现不了的。</li>
+<li>白盒测试：一个模块中的所有独立路径至少被测试一次。所有逻辑值均需测试true和false两种情况。</li>
+</ol>
+</li>
+</ol>
+<h3 id="介绍下MVC模式"><a href="#介绍下MVC模式" class="headerlink" title="介绍下MVC模式"></a>介绍下MVC模式</h3><p>MVC 模式（Model–view–controller）是软件工程中的一种软件架构模式，它把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）。</p>
+<p>MVC 模式的目的是实现一种动态的程序设计，简化后续对程序的修改和扩展，并且使程序某一部分的重复利用成为可能。除此之外，MVC 模式通过对复杂度的简化，使程序的结构更加直观。软件系统在分离了自身的基本部分的同时，也赋予了各个基本部分应有的功能。专业人员可以通过自身的专长进行相关的分组：</p>
+<p><strong>模型（Model）</strong>：程序员编写程序应有的功能（实现算法等等）、数据库专家进行数据管理和数据库设计(可以实现具体的功能)；</p>
+<p><strong>控制器（Controller）</strong>：负责转发请求，对请求进行处理；</p>
+<p><strong>视图（View）</strong>：界面设计人员进行图形界面设计。</p>
+<p>具体：<a href="https://blog.csdn.net/liitdar/article/details/86685880">https://blog.csdn.net/liitdar/article/details/86685880</a></p>
+<h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><h3 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h3><ol>
+<li><p>相同点：都是地址的概念；指针指向一块内存，它的内容是所指内存的地址；而引用则是某块内存的别名。</p>
+</li>
+<li><p>不同点：</p>
+<ol>
+<li>指针是一个实体，而引用仅是个别名；</li>
+<li>引用只能在定义时被初始化一次，之后不可变；指针可变；引用“从一而终”，指针可以“见异思迁”；</li>
+<li>引用没有const，指针有const，const的指针不可变；</li>
+<li>引用不能为空，指针可以为空；</li>
+<li>“sizeof 引用”得到的是所指向的变量(对象)的大小，而“sizeof 指针”得到的是指针本身的大小；</li>
+<li>指针和引用的自增(++)运算意义不一样；</li>
+<li>引用是类型安全的，而指针不是 (引用比指针多了类型检查）</li>
+</ol>
+</li>
+</ol>
+<p>参考：<a href="https://blog.csdn.net/xdrt81y/article/details/18004129">https://blog.csdn.net/xdrt81y/article/details/18004129</a></p>
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p><a href="https://blog.csdn.net/jiang7701037/article/details/98738487">https://blog.csdn.net/jiang7701037/article/details/98738487</a></p>
+<h3 id="java和c-和c的区别"><a href="#java和c-和c的区别" class="headerlink" title="java和c++和c的区别"></a>java和c++和c的区别</h3><ol>
+<li>Java不能在类之外的地方定义全局变量，只能在一个类中定义静态变量来实现一个全局变量。</li>
+</ol>
+<p>​	C&#x2F;C++可以直接在类之外定义全局变量。</p>
+<p>​	Java can’t define global variables outside a class, it can only define static variables in a class as a global variable.</p>
+<ol start="2">
+<li>Java不支持C&#x2F;C++的goto语句，而是通过try、catch来代替C&#x2F;C++的goto来处理异常时控制。</li>
+</ol>
+<p>​	Java doesn’t support “goto” statements of C&#x2F;C++, but uses try&#x2F;catch syntax instead of “goto” for exception control.</p>
+<ol start="3">
+<li>C&#x2F;C++可以通过指针进行内存地址操作，例如通过指针对某内存地址进行显式类型转换，而这种操作访问私有成员破坏了安全性。</li>
+</ol>
+<p>​	Java对指针进行完全的控制，不能在程序中进行任何指针操作，Java中的数组作为类实现，解决了关于数组的很多C&#x2F;C++难以检查的错误。</p>
+<p>​	C&#x2F;C++ can operate memory address through pointer. For Example, C&#x2F;C++ makes explicitly conversion to a memory address by pointer, which destroys the security of the program because it accesses private members. Java Controls pointer completely, and can not operate any pointer in the program. The array in Java is implemented as a class, which solves many errors about array which are difficult to check in c&#x2F;c++.</p>
+<ol start="4">
+<li>在C语言中通过malloc和free函数分配和释放内存；C++中可以通过new和delete进行内存的分配和释放。在Java中通过new运算符分配内存，进行对象实例化，而分配内存时随着程序运行动态分配，且Java能够进行自动管理和自动垃圾回收，防止内存资源产生的操作错误和浪费。</li>
+</ol>
+<p>​	In C language, malloc function and free function are used to allocate and release memory; In C + +, memory can be allocated and released by new and delete keywords. In Java, the new operator is used to allocate memory and instantiate objects, and the allocated memory is dynamically allocated with the running of the program. Java can automatically manage memory and recycle garbage, so as to prevent memory operation errors and memory waste.</p>
+<ol start="5">
+<li>C&#x2F;C++对于不同的平台，数据类型的长度不同，代码不可移植。Java对数据类型总是分配固定长度位数，保证平台无关性。</li>
+</ol>
+<p>​	The length of data type of C&#x2F;C++ is different in different platforms, so the code is not portable. Java always allocates a fixed number of bits to data type to ensure platform independence.</p>
+<ol start="6">
+<li>C++可以通过指针进行任意类型的转换，Java在进行类型转换时会进行类型相容性检查，防止不安全的转换。</li>
+</ol>
+<p>​	C++ can do any type conversion by pointer. Java will check the type compatibility to prevent unsafe conversion.</p>
+<ol start="7">
+<li>C&#x2F;C++中用头文件声明类的原型及全局变量、库函数，在大的系统中难以维护这些文件。Java不支持头文件，所有类成员的类型和访问权限都封装在一个类中，运行时系统对访问会进行控制防止对私有成员的操作；导入其他类要使用import语句。</li>
+</ol>
+<p>​	In C&#x2F;C++, header files are used to declare class prototypes, global variables and library functions, which are diffcult to maintain in large systems. Java does not support header files. The types and access rights of all class members are encapsulated in one class. When the program is running, the system will control the access to prevent the operation of private members.</p>
+<ol start="8">
+<li>C++中的结构体和联合体所有成员都是共有的，这有一定的安全问题。Java中没有结构体和联合体，一切内容都封装在类中。</li>
+</ol>
+<p>​	All members of C++ structure and union are public, so there are some security problems. There is no structure or union in Java, everything is encapsulated in class.</p>
+<ol start="9">
+<li>C++支持宏定义，Java不支持宏定义，而是通过final来声明一个常量，实现宏定义中常量的定义。</li>
+</ol>
+<p>​	C + + supports macro definition. Java does not support macro definition, but declares a constant through the final keyword to realize the definition of constant equivalent to macro definition.</p>
+]]></content>
       <categories>
         <category>随笔</category>
       </categories>
       <tags>
         <tag>Learn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自建测速节点，解决V2rayN测速为0的问题</title>
-    <url>/2023/08/18/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
-<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
-<li>一个域名（需要解析到cloudflare上面）</li>
-<li>科学上网</li>
-</ol>
-<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
-<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
-</li>
-<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
-</li>
-<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
-</li>
-<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
-</li>
-<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>cloudflare</tag>
       </tags>
   </entry>
 </search>
