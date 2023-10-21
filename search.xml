@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>vpn搭建教程</title>
-    <url>/2023/08/18/VPN%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="VPN搭建教程"><a href="#VPN搭建教程" class="headerlink" title="VPN搭建教程"></a>VPN搭建教程</h1><p>DNS书写：</p>
-<ol>
-<li><p>安装trojan</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装nginx搭建https伪装</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo yum update //更新软件包</span><br><span class="line"></span><br><span class="line">//安装nginx</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">//启动nginx</span><br><span class="line">systemctl enable nginx; systemctl start nginx</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">默认情况下，Nginx 会监听 80 端口，您可以通过在浏览器中输入服务器的 IP 地址或域名来验证 Nginx 是否安装成功。如果您能够看到 Nginx 的欢迎页面，则表示安装成功。如果未能成功启动 Nginx，请检查 Nginx 的配置文件是否正确，并检查是否有其它服务占用了 80 端口。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">// nginx页面地址在/usr/share/nginx/html  修改下面的nginx即可搭建成功界面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>证书申请</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">//安装certbot</span><br><span class="line">sudo yum install certbot</span><br><span class="line"></span><br><span class="line">// 申请证书</span><br><span class="line">sudo certbot certonly --webroot -w /path/to/your/application/root --domain example.com --email your-email@example.com</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">/path/to/your/application/root 填写自己前端网页地址，例如本实例即为/usr/share/nginx/html</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>4.完善</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//放前端页面</span><br><span class="line">具体位置在nginx.conf里面可以直接找。</span><br><span class="line">//改nginx配置</span><br><span class="line">直接复制nginx.conf替换原来的。</span><br><span class="line">VPS的nginx.conf位置：/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//改trojan配置：</span><br><span class="line">将config.json文件复制替换原来的：</span><br><span class="line">Trojan的config.json位置:/usr/local/etc/trojan/config.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置重启和开机自启动，这个直接问chatgpt</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bbr加速安装</span><br><span class="line">//先安装wget</span><br><span class="line">yum install wget</span><br><span class="line"></span><br><span class="line">//安装bbr</span><br><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>vpn</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown配合图床上传图片到Github</title>
     <url>/2023/08/18/Markdown%E9%85%8D%E5%90%88%E5%9B%BE%E5%BA%8A%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0Github/</url>
     <content><![CDATA[<p>Markdown配合图床上传图片到Github</p>
@@ -69,6 +42,159 @@
       <tags>
         <tag>Typora</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>vpn搭建教程</title>
+    <url>/2023/08/18/VPN%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="VPN搭建教程"><a href="#VPN搭建教程" class="headerlink" title="VPN搭建教程"></a>VPN搭建教程</h1><p>DNS书写：</p>
+<ol>
+<li><p>安装trojan</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装nginx搭建https伪装</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">sudo yum update //更新软件包</span><br><span class="line"></span><br><span class="line">//安装nginx</span><br><span class="line">sudo yum install epel-release</span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">//启动nginx</span><br><span class="line">systemctl enable nginx; systemctl start nginx</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">默认情况下，Nginx 会监听 80 端口，您可以通过在浏览器中输入服务器的 IP 地址或域名来验证 Nginx 是否安装成功。如果您能够看到 Nginx 的欢迎页面，则表示安装成功。如果未能成功启动 Nginx，请检查 Nginx 的配置文件是否正确，并检查是否有其它服务占用了 80 端口。</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">// nginx页面地址在/usr/share/nginx/html  修改下面的nginx即可搭建成功界面</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>证书申请</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">//安装certbot</span><br><span class="line">sudo yum install certbot</span><br><span class="line"></span><br><span class="line">// 申请证书</span><br><span class="line">sudo certbot certonly --webroot -w /path/to/your/application/root --domain example.com --email your-email@example.com</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">/path/to/your/application/root 填写自己前端网页地址，例如本实例即为/usr/share/nginx/html</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>4.完善</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//放前端页面</span><br><span class="line">具体位置在nginx.conf里面可以直接找。</span><br><span class="line">//改nginx配置</span><br><span class="line">直接复制nginx.conf替换原来的。</span><br><span class="line">VPS的nginx.conf位置：/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//改trojan配置：</span><br><span class="line">将config.json文件复制替换原来的：</span><br><span class="line">Trojan的config.json位置:/usr/local/etc/trojan/config.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置重启和开机自启动，这个直接问chatgpt</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bbr加速安装</span><br><span class="line">//先安装wget</span><br><span class="line">yum install wget</span><br><span class="line"></span><br><span class="line">//安装bbr</span><br><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自建测速节点，解决V2rayN测速为0的问题</title>
+    <url>/2023/08/18/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
+<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
+<li>一个域名（需要解析到cloudflare上面）</li>
+<li>科学上网</li>
+</ol>
+<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
+<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
+</li>
+<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
+</li>
+<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
+</li>
+<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
+</li>
+<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>cloudflare</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/10/21/reality%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们都知道， 普通的 <code>TLS</code> 代理的一个重要弱点就是各种加密进行套娃，虽然加密包的外观让防火墙无法进行分辨，但是加密套娃无可避免的一个点就在于，它会在每个包都增加一个数据包头，那加密的层数越多，包的头也会越多，这个增量虽然不大，但这个数据可能具有某些统计学的一些特征。</p>
+<p>额，那若是发现这个特征嘞，是的，那 <code>TLS</code> 的代理也就不太安全了。</p>
+<p>想当初，<code>RPRX</code> 发布了 <code>XTLS</code>，而 <code>XTLS</code> 其主要原因就是为了减少额外的加密，在 <code>TLS</code> 代理的特征被暴露以后，<code>Xray-core 1.8.0</code> 马上推出了新的流控 —— <code>Vision</code>，至此，当使用 <code>Vision</code> 传输 <code>TLS1.3</code> 的数据时，<code>99%</code> 的数据包，几乎拥有完美的流量特征，因为他是原始数据，没有经过任何的加工。</p>
+<p>然而在此之外，今年的三月，<code>Xray-core 1.8.0</code> 又进一步推出了 REALITY 协议来取代传统的 TLS 服务，这样可以消除服务端 TLS 的指纹特征，仍然具有前向保密性，而且证书链也是攻击无效，那这样安全性的确就超越了常规的 TLS，关键可以指向别人的网站，所以无须自己购置域名，布置证书等，而且，不必使用 VPS 的 <code>443</code> 端口，所以，的确是方便和安全了不少。甚至，在我自己长达半年的使用过程中 <code>Reality + Vision</code>，没有出现任何问题，延迟、速率也是很不错</p>
+<h2 id="视频演示"><a href="#视频演示" class="headerlink" title="视频演示"></a>视频演示</h2><p><a href="https://v2rayssr.com/go?url=https://www.youtube.com/watch?v=DO1_C9YWOYY"><img src="https://github.com/ninuan/images/raw/main//images/2222222.jpg" alt="img"></a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1、VPS 一台，新手请重置好主流的操作系统（CentOS &#x2F; Debian &#x2F; Ubuntu）</p>
+<ul>
+<li>本期演示的 VPS 来自 <a href="https://v2rayssr.com/bwg.html">搬瓦工 CN2 GIA ECOMMERCE</a></li>
+</ul>
+<p>2、找到目标指向网站</p>
+<ul>
+<li>要求支持 TLS 1.3 ，H2 连接 （不明白 <a href="https://v2rayssr.com/go?url=https://www.youtube.com/watch?v=DO1_C9YWOYY">请看视频</a> 或是博客下面文章）</li>
+</ul>
+<p>3、Reality GitHub：<a href="https://v2rayssr.com/go?url=https://github.com/XTLS/REALITY">点击访问</a></p>
+<h2 id="搭建-Reality"><a href="#搭建-Reality" class="headerlink" title="搭建 Reality"></a>搭建 Reality</h2><h3 id="安装所需组件"><a href="#安装所需组件" class="headerlink" title="安装所需组件"></a>安装所需组件</h3><p>以下命令，请根据自己的操作系统作出选择</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## 以下为 CentOS 命令yum update -y yum install curl wget -y</span><br><span class="line">## 以下为 Debian / Ubuntu 命令apt update -y apt install curl wget -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-X-ui"><a href="#安装-X-ui" class="headerlink" title="安装 X-ui"></a>安装 X-ui</h3><blockquote>
+<p>因为原版的 X-UI 已经很久没有更新和维护了，以下的 X-UI 为改版，来自 GitHub ：<a href="https://v2rayssr.com/go?url=https://github.com/FranzKafkaYu/x-ui/">点击访问</a></p>
+<p>更新频率更高，推荐大家使用。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/ninuan/images/raw/main//images/1-1.png" alt="img"></p>
+<h3 id="设置-X-ui-面板"><a href="#设置-X-ui-面板" class="headerlink" title="设置 X-ui 面板"></a>设置 X-ui 面板</h3><p>找到左侧面板设置，记录 “面板 url 根路径” ，以后访问 X-ui 面板的地址为 <code>http://ip:端口/面板url根路径</code></p>
+<h3 id="如何寻找-TLS1-3-H2-的网站"><a href="#如何寻找-TLS1-3-H2-的网站" class="headerlink" title="如何寻找 TLS1.3&#x2F;H2 的网站"></a>如何寻找 TLS1.3&#x2F;H2 的网站</h3><blockquote>
+<p>目标网站最低标准：国外网站，支持 TLSv1.3 与 H2，域名非跳转用</p>
+<p>加分项：IP 相近（更像，且延迟低），Server Hello 后的握手消息一起加密（如 dl.google.com），有 OCSP Stapling</p>
+<p>配置加分项：禁回国流量，TCP&#x2F;80、UDP&#x2F;443 也转发（REALITY 对外表现即为端口转发，目标 IP 冷门或许更好）</p>
+</blockquote>
+<p>可以使用这个网站：<a href="https://v2rayssr.com/go?url=https://www.ssllabs.com/projects/index.html">点击访问</a> ，来寻找 <code>TLS1.3 / X25519 / H2</code> 的指向站点，更多注意事项，请看 本期视频</p>
+<p>也可以使用这个网站：<a href="https://v2rayssr.com/go?url=http://web.chacuo.net/netocspstapling">点击访问</a> ，来查询目标网站是否支持 <code>OCSP Stapling</code> （<strong>加分项而已，不支持也没有太大关系</strong>）</p>
+<p><strong>注意：大家代理出现问题，第一个需要检查的是目标网站是否存在问题！！！！！！</strong></p>
+<h3 id="部署-Reality-节点"><a href="#部署-Reality-节点" class="headerlink" title="部署 Reality 节点"></a>部署 Reality 节点</h3><p>创建 Reality 节点还是很简单的，如下图，更多注意事项请看 <a href="https://v2rayssr.com/go?url=https://www.youtube.com/watch?v=DO1_C9YWOYY">本期视频</a></p>
+<p><img src="https://github.com/ninuan/images/raw/main//images/223.png" alt="img"></p>
+<h3 id="开启-BBR-加速"><a href="#开启-BBR-加速" class="headerlink" title="开启 BBR 加速"></a>开启 BBR 加速</h3><p>以下 BBR 加速，请自选一种</p>
+<h4 id="1、系统自带-BBR-加速"><a href="#1、系统自带-BBR-加速" class="headerlink" title="1、系统自带 BBR 加速"></a>1、系统自带 BBR 加速</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.confecho &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.confsysctl -p</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、BBRplus-加速"><a href="#2、BBRplus-加速" class="headerlink" title="2、BBRplus 加速"></a>2、BBRplus 加速</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://github.com/ninuan/images/raw/main//images/2-1.png" alt="img"></h2><h2 id="Reality-客户端"><a href="#Reality-客户端" class="headerlink" title="Reality 客户端"></a>Reality 客户端</h2><p>以下客户端来自 <a href="https://v2rayssr.com/go?url=https://github.com/XTLS/Xray-core">XTLS</a> 官方推荐（部分我没有进行尝试，大家可以自行尝试）</p>
+<ul>
+<li>OpenWrt<ul>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/xiaorouji/openwrt-passwall">PassWall</a>, <a href="https://v2rayssr.com/go?url=https://github.com/xiaorouji/openwrt-passwall2">PassWall 2</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/fw876/helloworld">ShadowSocksR Plus+</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/yichya/luci-app-xray">luci-app-xray</a> (<a href="https://v2rayssr.com/go?url=https://github.com/yichya/openwrt-xray">openwrt-xray</a>)</li>
+</ul>
+</li>
+<li>Windows<ul>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/2dust/v2rayN">v2rayN</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/Matsuridayo/nekoray">NekoRay</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/LorenEteval/Furious">Furious</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/hiddify/HiddifyN">HiddifyN</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/InvisibleManVPN/InvisibleMan-XRayClient">Invisible Man – Xray</a></li>
+</ul>
+</li>
+<li>Android<ul>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/2dust/v2rayNG">v2rayNG</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/hiddify/HiddifyNG">HiddifyNG</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/XTLS/X-flutter">X-flutter</a></li>
+</ul>
+</li>
+<li>iOS &amp; macOS arm64<ul>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/arror/Mango">Mango</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://apps.apple.com/app/foxray/id6448898396">FoXray</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://apps.apple.com/app/streisand/id6450534064">Streisand</a></li>
+</ul>
+</li>
+<li>macOS arm64 &amp; x64<ul>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/yanue/V2rayU">V2rayU</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/tzmax/V2RayXS">V2RayXS</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/LorenEteval/Furious">Furious</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://apps.apple.com/app/foxray/id6448898396">FoXray</a></li>
+</ul>
+</li>
+<li>Linux<ul>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/v2rayA/v2rayA">v2rayA</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/Matsuridayo/nekoray">NekoRay</a></li>
+<li><a href="https://v2rayssr.com/go?url=https://github.com/LorenEteval/Furious">Furious</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>有了 <code>X-ui</code> 面板，可视化的搭建 <code>Reality</code> ，也是极为方便，而且这种协议也是目前来说比较安全的代理方式之一，不需要自己购买的域名，可以有效的去除普通 <code>TLS</code> 代理过程中的一些特征。</p>
+<p>但是互联网没有绝对，无非也就是矛与盾之间的较量，只是在目前来说不容易被封 IP 和端口。</p>
+<p>若是你问我，是不是推荐所有人都来使用它，其实我不推荐，这只是一种方法，若是你自创的一种方式能长期稳定的使用，那么我不推荐你进行更换，就和 <code>XTLS</code> 官方所说：“把所有的鸡蛋都放在一个篮子里是十分危险的，我们鼓励大家善用每个工具的特性，分散特征”。</p>
+<p>比如：<code>NaiveProxy</code>、魔改的 <code>Shadowsocks</code>，<code>MITM</code> 代理 等等。我个人觉得，越少冷门越好。</p>
+]]></content>
   </entry>
   <entry>
     <title>cloudflare创建自己的短链生成网站</title>
@@ -125,38 +251,39 @@
       </tags>
   </entry>
   <entry>
-    <title>自建测速节点，解决V2rayN测速为0的问题</title>
-    <url>/2023/08/18/%E8%87%AA%E5%BB%BA%E6%B5%8B%E9%80%9F%E8%8A%82%E7%82%B9%EF%BC%8C%E8%A7%A3%E5%86%B3V2rayN%E6%B5%8B%E9%80%9F%E4%B8%BA0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="本教程需要使用的网站或工具："><a href="#本教程需要使用的网站或工具：" class="headerlink" title="本教程需要使用的网站或工具："></a>本教程需要使用的网站或工具：</h3><ol>
-<li><a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a></li>
-<li>一个域名（需要解析到cloudflare上面）</li>
-<li>科学上网</li>
-</ol>
-<h3 id="如果不想花费力气，直接下载：测速"><a href="#如果不想花费力气，直接下载：测速" class="headerlink" title="如果不想花费力气，直接下载：测速"></a>如果不想花费力气，直接下载：<a href="https://short.ninuan.link/yxip">测速</a></h3><h3 id="教程："><a href="#教程：" class="headerlink" title="教程："></a>教程：</h3><ol>
-<li><p>登录cloudflare，点击<code>Workers和Pages</code>，创建应用程序</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721144833007.png" alt="image-20230721144833007" style="zoom:50%;" />
+    <title>节点测速的高速方法</title>
+    <url>/2023/08/18/%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E7%9A%84%E9%AB%98%E9%80%9F%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="高速优选节点快速的IP"><a href="#高速优选节点快速的IP" class="headerlink" title="高速优选节点快速的IP"></a>高速优选节点快速的IP</h2><ol>
+<li><p>根据规则找到反代cloudflare的ip，网址<a href="https://fofa.info/">https://fofa.info</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 规则--根据自己想要的节点自己选择</span></span><br><span class="line">国内反代IP：server==&quot;cloudflare&quot; &amp;&amp; port==&quot;80&quot; &amp;&amp; header=&quot;Forbidden&quot; &amp;&amp; country==&quot;CN&quot;</span><br><span class="line">剔除CF：asn!=&quot;13335&quot; &amp;&amp; asn!=&quot;209242&quot;</span><br><span class="line">阿里云：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;45102&quot;</span><br><span class="line">甲骨文韩国：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;31898&quot; &amp;&amp; country==&quot;KR&quot;</span><br><span class="line">搬瓦工：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;25820&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>点击创建Worker，名称随意（但是不能跟已有的重复），点击部署</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145006155.png" alt="image-20230721145006155" style="zoom:50%;" />
+<li><p>网站注册</p>
+<p>临时邮箱：<a href="http://24mail.chacuo.net/">http://24mail.chacuo.net</a><br>（一个邮箱额度有限，可以用虚拟邮箱）</p>
 </li>
-<li><p>点击编辑代码，进入之后把原先的代码删完，复制代码，粘贴，然后点击<strong>保存并部署</strong>（如果还是不能使用，替换第四行的链接，在<a href="https://github.com/XIU2/CloudflareSpeedTest/issues/168">https://github.com/XIU2/CloudflareSpeedTest/issues/168</a> 里面找到能用的链接就行）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&quot;fetch&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(event.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&quot;/&quot;</span> &amp;&amp; url.<span class="property">search</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    url.<span class="property">href</span>=<span class="string">&quot;https://cloudflarest.itkyou.cf/100mb.zip&quot;</span></span><br><span class="line">    <span class="keyword">let</span> request = <span class="keyword">new</span> <span class="title class_">Request</span>(url, event.<span class="property">request</span>);</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetch</span>(request));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<li><p>搜索完成后，点击下载</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204214913.png" alt="image-20230723204214913" style="zoom:50%;" />
 </li>
-<li><p>回到Workers空间，找到<code>Custom Domains</code>，点击查看</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145322954.png" alt="image-20230721145322954" style="zoom:50%;" />
+<li><p>下载到本地后，打开，找到对应的ip复制</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204248143.png" alt="image-20230723204248143" style="zoom:50%;" />
 </li>
-<li><p>点击添加自定义域（域名需要在cloudflare存在解析，然后自己在域名前面添加二级域名即可）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145418347.png" alt="image-20230721145418347" style="zoom:50%;" />
+<li><p>打开网址<a href="https://bulianglin.com/archives/cdn.html">https://bulianglin.com/archives/cdn.html</a> </p>
+<p>原始节点需要用自己的节点分享出来，地址的话填写自己的伪装域名</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210812062.png" alt="image-20230723210812062" style="zoom:50%;" />
+
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204500044.png" alt="image-20230723204500044" style="zoom:50%;" />
 </li>
-<li><p>现在将添加的自定义域名放到V2rayN里面即可（最好使用最新版本）</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230721145535312.png" alt="image-20230721145535312" style="zoom:50%;" /></li>
+<li><p>下载测速工具<a href="https://short.ninuan.link/node">https://short.ninuan.link/node</a> ,解压后打开exe文件</p>
+<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210248913.png" alt="image-20230723210248913" style="zoom:50%;" />
+
+<p>导入进去之后，<code>Ctrl + A</code>全选，右键测试延迟和速度（延迟内核和下载内核vless都选Xray，vmess内核选clash、Xray），测试完成之后复制节点导入到科学上网工具就行</p>
+</li>
 </ol>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>cloudflare</tag>
+        <tag>vpn</tag>
       </tags>
   </entry>
   <entry>
@@ -851,42 +978,6 @@
       </categories>
       <tags>
         <tag>Learn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>节点测速的高速方法</title>
-    <url>/2023/08/18/%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E7%9A%84%E9%AB%98%E9%80%9F%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="高速优选节点快速的IP"><a href="#高速优选节点快速的IP" class="headerlink" title="高速优选节点快速的IP"></a>高速优选节点快速的IP</h2><ol>
-<li><p>根据规则找到反代cloudflare的ip，网址<a href="https://fofa.info/">https://fofa.info</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 规则--根据自己想要的节点自己选择</span></span><br><span class="line">国内反代IP：server==&quot;cloudflare&quot; &amp;&amp; port==&quot;80&quot; &amp;&amp; header=&quot;Forbidden&quot; &amp;&amp; country==&quot;CN&quot;</span><br><span class="line">剔除CF：asn!=&quot;13335&quot; &amp;&amp; asn!=&quot;209242&quot;</span><br><span class="line">阿里云：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;45102&quot;</span><br><span class="line">甲骨文韩国：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;31898&quot; &amp;&amp; country==&quot;KR&quot;</span><br><span class="line">搬瓦工：server==&quot;cloudflare&quot; &amp;&amp; asn==&quot;25820&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>网站注册</p>
-<p>临时邮箱：<a href="http://24mail.chacuo.net/">http://24mail.chacuo.net</a><br>（一个邮箱额度有限，可以用虚拟邮箱）</p>
-</li>
-<li><p>搜索完成后，点击下载</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204214913.png" alt="image-20230723204214913" style="zoom:50%;" />
-</li>
-<li><p>下载到本地后，打开，找到对应的ip复制</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204248143.png" alt="image-20230723204248143" style="zoom:50%;" />
-</li>
-<li><p>打开网址<a href="https://bulianglin.com/archives/cdn.html">https://bulianglin.com/archives/cdn.html</a> </p>
-<p>原始节点需要用自己的节点分享出来，地址的话填写自己的伪装域名</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210812062.png" alt="image-20230723210812062" style="zoom:50%;" />
-
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723204500044.png" alt="image-20230723204500044" style="zoom:50%;" />
-</li>
-<li><p>下载测速工具<a href="https://short.ninuan.link/node">https://short.ninuan.link/node</a> ,解压后打开exe文件</p>
-<img src="https://github.com/ninuan/images/raw/main//images/image-20230723210248913.png" alt="image-20230723210248913" style="zoom:50%;" />
-
-<p>导入进去之后，<code>Ctrl + A</code>全选，右键测试延迟和速度（延迟内核和下载内核vless都选Xray，vmess内核选clash、Xray），测试完成之后复制节点导入到科学上网工具就行</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>vpn</tag>
       </tags>
   </entry>
 </search>
